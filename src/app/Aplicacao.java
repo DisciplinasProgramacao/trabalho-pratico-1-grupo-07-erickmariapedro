@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Aplicacao {
 
@@ -21,7 +22,7 @@ public class Aplicacao {
         }
         return itens;
     }
-
+    
     public static void main(String[] args) throws Exception {
         Mochila mochila = new Mochila(15);
          List<ItemMochila> itens = new ArrayList<ItemMochila>();
