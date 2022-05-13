@@ -2,8 +2,6 @@ package business;
 import java.util.Collections;
 import java.util.List;
 
-
-
 public class Guloso {
     Mochila mochila = new Mochila(15);
 
