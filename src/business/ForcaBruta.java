@@ -5,8 +5,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class ForcaBruta {
+    Mochila mochila = new Mochila(15);
 
-	public static List<List<ItemMochila>> encontrarSubConjunto(List<ItemMochila> itens) {
+	public List<List<ItemMochila>> encontrarSubConjunto(List<ItemMochila> itens) {
 
 		List<List<ItemMochila>> subConjuntos = new ArrayList<>();
 
@@ -26,7 +27,7 @@ public class ForcaBruta {
 		return subConjuntos;
 	}
 
-	public static int conjuntoMaisValioso(List<ItemMochila> itens, int capacidade) {
+	public Mochila conjuntoMaisValioso(List<ItemMochila> itens) throws Exception {
 		List<List<ItemMochila>> subConjuntos = encontrarSubConjunto(itens);
 		int maisValioso = 0;
 
@@ -37,16 +38,17 @@ public class ForcaBruta {
 				peso += item.getPeso();
 			}
 
-			if (peso <= capacidade) {
+			if (peso <= mochila.getCapacidade()) {
 				for (ItemMochila item : subConjuntos.get(i)) {
 					valor += item.getValor();
 				}
 				if (valor > maisValioso) {
 					maisValioso = valor;
+		            this.mochila.addItemMochila(itens.get(i));
 				}
 			}
 		}
-		return maisValioso;
+		return mochila;
 	}
 
 }

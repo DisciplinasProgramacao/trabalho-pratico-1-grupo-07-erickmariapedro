@@ -1,14 +1,9 @@
 package app;
 
 import business.ItemMochila;
-import business.Mochila;
-import business.SortByValorPeso;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class Aplicacao {
 
@@ -24,8 +19,6 @@ public class Aplicacao {
     }
     
     public static void main(String[] args) throws Exception {
-        Mochila mochila = new Mochila(15);
-         List<ItemMochila> itens = new ArrayList<ItemMochila>();
         long start, elapsed = 0, elapsedTotal = 0;
         int cont = 60000;
         /*while (elapsed < 4000) {
@@ -46,12 +39,8 @@ public class Aplicacao {
             System.out.println("Tempo: " + elapsed);
         }*/
         start = System.currentTimeMillis();
-
-
-
         cont = cont + 1;
         elapsed  = System.currentTimeMillis() - start;
-
 
         System.out.println("Quantidade de itens: " + cont);
         System.out.println("Tempo total: " + elapsed);
