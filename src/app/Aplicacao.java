@@ -48,7 +48,6 @@ public class Aplicacao {
         start = System.currentTimeMillis();
 
 
-
         cont = cont + 1;
         elapsed  = System.currentTimeMillis() - start;
 
