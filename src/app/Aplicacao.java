@@ -46,15 +46,9 @@ public class Aplicacao {
             System.out.println("Tempo: " + elapsed);
         }*/
         start = System.currentTimeMillis();
-        itens = geradorDeItens(mochila.getCapacidade(),cont);
-        Collections.sort(itens, new SortByValorPeso());
 
-        for (int i = 0; i<itens.size();i++) {
-            int capacidadeUtilizada = mochila.getItens().stream().reduce(0, (a,b) -> a + b.getPeso(),Integer::sum);
-            if(itens.get(i).getPeso() <= mochila.getCapacidade() - capacidadeUtilizada) {
-                mochila.addItemMochila(itens.get(i));
-            }
-        }
+
+
         cont = cont + 1;
         elapsed  = System.currentTimeMillis() - start;
 
