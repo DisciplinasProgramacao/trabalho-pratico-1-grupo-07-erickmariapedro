@@ -19,7 +19,7 @@ public class ForcaBruta {
 			for (int i = 0; i < recursivoConjunto.size(); i++) {
 				List<ItemMochila> conjunto = recursivoConjunto.get(i);
 				subConjuntos.add(conjunto);
-				List<ItemMochila> item = new ArrayList<ItemMochila>(conjunto);
+				List<ItemMochila> item = new ArrayList<>(conjunto);
 				item.add(0, itens.get(0));
 				subConjuntos.add(item);
 			}
@@ -30,25 +30,17 @@ public class ForcaBruta {
 	public Mochila conjuntoMaisValioso(List<ItemMochila> itens) throws Exception {
 		List<List<ItemMochila>> subConjuntos = encontrarSubConjunto(itens);
 		int maisValioso = 0;
-
-		for (int i = 0; i < subConjuntos.size(); i++) {
-			double peso = 0;
-			int valor = 0;
-			for (ItemMochila item : subConjuntos.get(i)) {
-				peso += item.getPeso();
-			}
-
-			if (peso <= mochila.getCapacidade()) {
-				for (ItemMochila item : subConjuntos.get(i)) {
-					valor += item.getValor();
-				}
-				if (valor > maisValioso) {
-					maisValioso = valor;
-		            this.mochila.addItemMochila(itens.get(i));
-				}
+		double peso = 0;
+		int valor = 0;
+		for (List<ItemMochila> item : subConjuntos) {
+			valor = item.stream().reduce(0, (a,b) -> a + b.getValor(),Integer::sum);
+			peso = item.stream().reduce(0, (a,b) -> a + b.getPeso(),Integer::sum);
+			if (valor > maisValioso && peso <= mochila.getCapacidade()) {
+				maisValioso = valor;
+				this.mochila.setItens(item);
 			}
 		}
+
 		return mochila;
 	}
-
 }

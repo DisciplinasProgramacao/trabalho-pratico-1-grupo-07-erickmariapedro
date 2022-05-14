@@ -12,8 +12,20 @@ public class Mochila {
         this.capacidade = capacidade;
     }
 
+    public double valorTotal() {
+        return itens.stream().reduce(0, (a,b) -> a + b.getValor(),Integer::sum);
+    }
+
+    public double pesoTotal() {
+        return itens.stream().reduce(0, (a,b) -> a + b.getPeso(),Integer::sum);
+    }
+
     public int getCapacidade() {
         return capacidade;
+    }
+
+    public void setItens(List<ItemMochila> itens) {
+        this.itens = itens;
     }
 
     public void addItemMochila(ItemMochila item) throws Exception {

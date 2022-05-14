@@ -6,6 +6,7 @@ import business.ItemMochila;
 import business.Mochila;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -28,11 +29,12 @@ public class Aplicacao {
         Mochila mochilaGulosa;
         Mochila mochilaForcaBruta;
 
-        for (int i = 0; i<500; i++ ) {
-            itens = geradorDeItens(15, 60000);
+        for (int i = 0; i<250; i++ ) {
+            itens = geradorDeItens(15, 22);
             mochilaForcaBruta = forcaBruta.conjuntoMaisValioso(itens);
             mochilaGulosa = guloso.mochilaGulosa(itens);
-            if (mochilaForcaBruta == mochilaGulosa) {
+            if (mochilaForcaBruta.valorTotal() == mochilaGulosa.valorTotal() &&
+            mochilaForcaBruta.pesoTotal() == mochilaGulosa.pesoTotal()) {
                 contador++;
             }
         }
@@ -43,31 +45,25 @@ public class Aplicacao {
         ForcaBruta forcaBruta = new ForcaBruta();
         Guloso guloso = new Guloso();
         int resultado = contaIgualdadeIteracoes(forcaBruta, guloso);
-        System.out.println(resultado);
-        long start, elapsed;
-        int cont = 60000;
-        /*while (elapsed < 4000) {
+        System.out.println("Quantidade de mochilas iguais: " + resultado);
+        /*
+         Mochila mochila1 = new Mochila(15);
+        List<ItemMochila> itens = new ArrayList<>();
+        long start, elapsed = 0;
+        int cont = 0;
+        while (elapsed < 4000) {
             start = System.currentTimeMillis();
-            itens = geradorDeItens(mochila.getCapacidade(),cont);
-            Collections.sort(itens, new SortByValorPeso());
-
-            for (int i = 0; i<itens.size();i++) {
-                int capacidadeUtilizada = mochila.getItens().stream().reduce(0, (a,b) -> a + b.getPeso(),Integer::sum);
-                if(itens.get(i).getPeso() <= mochila.getCapacidade() - capacidadeUtilizada) {
-                    mochila.addItemMochila(itens.get(i));
-                }
-            }
+            itens = geradorDeItens(mochila1.getCapacidade(),cont);
+            forcaBruta.conjuntoMaisValioso(itens);
             cont = cont + 1;
             elapsed  = System.currentTimeMillis() - start;
-            elapsedTotal += elapsed;
             System.out.println("Quantidade de itens: " + cont);
-            System.out.println("Tempo: " + elapsed);
-        }*/
+        }
         start = System.currentTimeMillis();
         cont = cont + 1;
         elapsed  = System.currentTimeMillis() - start;
 
         System.out.println("Quantidade de itens: " + cont);
-        System.out.println("Tempo total: " + elapsed);
+        System.out.println("Tempo total: " + elapsed);*/
     }
 }
