@@ -6,10 +6,16 @@ public class ProgDinamica {
 
 
     public ProgDinamica(int[][] custos){
-        matrizProg = new ItemMatriz[custos[0].length][custos.length+1];
+        matrizProg = new ItemMatriz[custos[0].length][custos.length+2];
 
-        for (int i = 0; i < custos.length; i++){
-            matrizProg[0][i+1] = new ItemMatriz(custos[i][0],MAX_INT);
+        for (int i = 0; i <= custos.length; i++){
+            if(i < custos.length){
+                matrizProg[0][i+1] = new ItemMatriz(custos[i][0],MAX_INT);
+            }
+            else {
+                matrizProg[0][i+1] = new ItemMatriz(4,MAX_INT);
+            }
+
         }
         for (int i = 1; i < matrizProg.length; i++){
             matrizProg[i][0] = new ItemMatriz(i,0);
@@ -25,13 +31,20 @@ public class ProgDinamica {
         int total = 0;
         for (int i = 1; i < matrizProg.length;i++){
             for (int j = 2; j < matrizProg[0].length; j++){
-                if(matrizProg[i][j].getCusto() + 1 <= matrizProg[0][1].getCusto()){
-                    total = m
-                    matrizProg[i][j].setTotal(); = matrizProg[]
-                }
-
+                matrizProg[i][j].setTotal(verificaMelhorTotal(i,j));
             }
         }
+    }
+
+    private int verificaMelhorTotal(int i, int j) {
+        if (j - i > 0) {
+            if (matrizProg[0][j - i] != null && matrizProg[0][j].getCusto() + i <= matrizProg[0][j - i].getCusto()){
+                if (matrizProg[i - 1][j].getTotal() > matrizProg[i][j - i].getSoma()) {
+                    return matrizProg[i][j - i].getSoma();
+                }
+            }
+        }
+        return matrizProg[i - 1][j].getTotal();
     }
 
 

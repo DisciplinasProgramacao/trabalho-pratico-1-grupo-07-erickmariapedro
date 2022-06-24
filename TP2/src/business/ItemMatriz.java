@@ -37,4 +37,8 @@ public class ItemMatriz {
     public void setTotal(int total) {
         this.total = total;
     }
+
+    public int getSoma(){
+        return this.getCusto() + this.getTotal();
+    }
 }
