@@ -1,4 +1,4 @@
-package business;
+package business.progDinamica;
 
 public class ItemMatriz {
     int custo;

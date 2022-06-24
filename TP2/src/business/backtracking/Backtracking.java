@@ -1,14 +1,8 @@
-public class Backtracking {
-    static int[][] matriz = {
-            {10,4,6,8},
-            {9,4,6,9},
-            {8,4,7,12},
-            {7,4,10,16},
-            {6,5,12,0},
-            {5,7,0,0}
-    };
+package business.backtracking;
 
-    static Rolo[][] construirMatrizRolos(int[][] matriz) {
+public class Backtracking {
+
+    public Rolo[][] construirMatrizRolos(int[][] matriz) {
         Rolo[][] novaMatriz = new Rolo[6][3];
         for (int i = 0; i < 6;i++) {
             for (int j = 0; j < 3;j++) {
@@ -18,12 +12,12 @@ public class Backtracking {
         return  novaMatriz;
     }
 
-    static boolean ePromissor(Rolo[][] matriz, int row, int col) {
+    public boolean ePromissor(Rolo[][] matriz, int row, int col) {
         return row <= 6;
     }
 
 
-    static double backtracking(Rolo[][] matriz, int row, int col, int espessuraAtual, double somaCustos, double melhorCusto) {
+    public double backtracking(Rolo[][] matriz, int row, int col, int espessuraAtual, double somaCustos, double melhorCusto) {
         if (ePromissor(matriz, row, col)) {
             if (espessuraAtual == 4) {
                 row--;
@@ -40,16 +34,6 @@ public class Backtracking {
         return melhorCusto;
     }
 
-    public static void main(String[] args) {
-        System.out.println(backtracking(
-                construirMatrizRolos(matriz),
-                0,
-                1,
-                matriz[0][0],
-                0,
-                Double.POSITIVE_INFINITY
-        ));
-    }
 }
 
 //                } else {
