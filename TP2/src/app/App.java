@@ -14,6 +14,9 @@ public class App {
                 {5,7,0,0}
         };
 
+        MatrizDAO leitor = new MatrizDAO();
+        leitor.get();
+
         System.out.println(matriz[0][2]);
         System.out.println(matriz[0].length);
 
