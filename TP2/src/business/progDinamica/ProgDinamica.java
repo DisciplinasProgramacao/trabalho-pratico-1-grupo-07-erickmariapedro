@@ -2,6 +2,7 @@ package business.progDinamica;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ProgDinamica {
@@ -70,7 +71,7 @@ public class ProgDinamica {
     }
     public List<Integer> getSequenciaCilindros(){
         List<Integer> sequencia = new ArrayList<>();
-        int ultimaCelula = 7;
+        int ultimaCelula = matrizProg[0].length-1;
         do {
             int diff = matrizProg[3][ultimaCelula].getTotal() - matrizProg[3][ultimaCelula-1].getTotal();
             if (diff == matrizProg[1][ultimaCelula-1].getCusto()){
@@ -87,7 +88,7 @@ public class ProgDinamica {
                 continue;
             }
         }while (ultimaCelula > 1);
-
+        Collections.reverse(sequencia);
         return sequencia;
     }
 
