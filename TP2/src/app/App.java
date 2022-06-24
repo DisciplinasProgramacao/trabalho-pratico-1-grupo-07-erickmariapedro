@@ -7,17 +7,8 @@ import business.progDinamica.ProgDinamica;
 public class App {
 
     public static void main(String[] args) {
-        int[][] matriz = {
-            {10,4,6,8},
-            {9,4,6,9},
-                {8,4,7,12},
-                {7,4,10,16},
-                {6,5,12,0},
-                {5,7,0,0}
-        };
-
         MatrizDAO leitor = new MatrizDAO();
-        leitor.get();
+        int[][] matriz = leitor.get("LaminacaoTeste1.txt");
 
         System.out.println(matriz[0][2]);
         System.out.println(matriz[0].length);
