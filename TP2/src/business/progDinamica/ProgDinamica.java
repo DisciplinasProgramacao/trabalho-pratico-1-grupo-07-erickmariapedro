@@ -95,6 +95,4 @@ public class ProgDinamica {
     public int getTamanhoSequencia(){
         return getSequenciaCilindros().size();
     }
-
-
 }

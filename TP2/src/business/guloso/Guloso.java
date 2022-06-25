@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Guloso {
+	List<Integer> sequencia = new ArrayList<>();
+
 	public List<Integer> guloso(int[][] matriz) {
 		int espessuraFinal = 4; 
 		int espessuraEntrada = matriz[0][0];
 		int reducao = 1;
 		double melhorCusto = Double.MAX_VALUE;
-		List<Integer> sequencia = new ArrayList<>();
 
 		for (int j = 0; j < matriz[j].length; j++) {
 			for (int i = 0; i < matriz.length; i++) {
@@ -27,4 +28,8 @@ public class Guloso {
 		}
 		return sequencia;
 	}
+	
+    public int getTamanhoSequencia(){
+        return sequencia.size();
+    }
 }
