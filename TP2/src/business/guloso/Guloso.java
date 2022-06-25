@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Guloso {
 	List<Integer> sequencia = new ArrayList<>();
+    int custoTotal = 0;
 
 	public List<Integer> guloso(int[][] matriz) {
 		int espessuraFinal = 4; 
@@ -21,6 +22,7 @@ public class Guloso {
 						melhorCusto = custo;
 						sequencia.add(reducao);
 						espessuraEntrada -= reducao;
+						custoTotal+=matriz[i][reducao];
 					}
 				}
 			}
@@ -31,5 +33,9 @@ public class Guloso {
 	
     public int getTamanhoSequencia(){
         return sequencia.size();
+    }
+    
+    public int getCustoTotal(){
+        return custoTotal;
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public class ProgDinamica {
     ItemMatriz[][] matrizProg;
     final static int MAX_INT = Integer.MAX_VALUE;
-
+    int custoTotal = 0;
 
     public ProgDinamica(int[][] custos){
         matrizProg = new ItemMatriz[custos[0].length][custos.length+2];
@@ -55,6 +55,7 @@ public class ProgDinamica {
         }else {
             total = matrizProg[i - 1][j].getTotal();
         }
+        custoTotal = total;
         return total;
     }
 
@@ -94,5 +95,9 @@ public class ProgDinamica {
 
     public int getTamanhoSequencia(){
         return getSequenciaCilindros().size();
+    }
+    
+    public int getCustoTotal(){
+        return custoTotal;
     }
 }

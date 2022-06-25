@@ -15,7 +15,7 @@ public class App {
         long tempoExecucaoBacktracking = 0;
         long tempoExecucaoProgDinamica = 0;
         long tempoExecucaoGuloso = 0;
-        
+                
         Backtracking backtracking = new Backtracking();
         Guloso guloso = new Guloso();    
         Rolo[][] matrizBacktracking = backtracking.construirMatrizRolos(matriz);
@@ -43,6 +43,7 @@ public class App {
         
         System.out.println("Sequência de rolos: " + progDinamica.getSequenciaCilindros().toString());
         System.out.println("Quantidade de rolos: " + progDinamica.getTamanhoSequencia());
+        System.out.println("Melhor custo: " + progDinamica.getCustoTotal());
         System.out.println("Tempo de execução: " + tempoExecucaoProgDinamica + " ms\n");
 
         System.out.println("Resultados Guloso");
@@ -53,6 +54,7 @@ public class App {
         tempoExecucaoGuloso = ((tempoExecucaoFinal - tempoExecucaoInicial));
         
         System.out.println("Quantidade de rolos: " + guloso.getTamanhoSequencia());
+        System.out.println("Melhor custo: " + guloso.getCustoTotal());
         System.out.println("Tempo de execução: " + tempoExecucaoGuloso + " ms\n");
     }
 }
