@@ -2,6 +2,7 @@ package app;
 
 import business.backtracking.Backtracking;
 import business.backtracking.Rolo;
+import business.guloso.Guloso;
 import business.progDinamica.ProgDinamica;
 
 public class App {
@@ -12,6 +13,7 @@ public class App {
 
         Backtracking backtracking = new Backtracking();
         ProgDinamica progDinamica = new ProgDinamica(matriz);
+        Guloso guloso = new Guloso();
         Rolo[][] matrizBacktracking = backtracking.construirMatrizRolos(matriz);
         System.out.println("(Backtracking) Melhor custo: " + backtracking.backtracking(matrizBacktracking,
                 0,
@@ -21,6 +23,7 @@ public class App {
                 Double.POSITIVE_INFINITY
         ));
 
-        System.out.println("(ProgramaÃ§Ã£o DinÃ¢nima) SequÃªncia de rolos: " +progDinamica.getSequenciaCilindros().toString());
+        System.out.println("(Programação Dinâmica) Sequência de rolos: " +progDinamica.getSequenciaCilindros().toString());
+        System.out.println("(Guloso) Sequência de rolos: " + guloso.guloso(matriz));
     }
 }
