@@ -1,7 +1,6 @@
 package business.backtracking;
 
 public class Backtracking {
-
     public Rolo[][] construirMatrizRolos(int[][] matriz) {
         Rolo[][] novaMatriz = new Rolo[matriz.length][matriz[0].length - 1];
         for (int i = 0; i < matriz.length;i++) {

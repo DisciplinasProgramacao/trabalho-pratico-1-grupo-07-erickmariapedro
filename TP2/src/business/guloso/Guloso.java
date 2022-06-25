@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Guloso {
 	List<Integer> sequencia = new ArrayList<>();
-    int custoTotal = 0;
+	int custoTotal = 0;
 
 	public List<Integer> guloso(int[][] matriz) {
-		int espessuraFinal = 4; 
+		int espessuraFinal = 4;
 		int espessuraEntrada = matriz[0][0];
 		int reducao = 1;
 		double melhorCusto = Double.MAX_VALUE;
@@ -22,7 +22,7 @@ public class Guloso {
 						melhorCusto = custo;
 						sequencia.add(reducao);
 						espessuraEntrada -= reducao;
-						custoTotal+=matriz[i][reducao];
+						custoTotal += matriz[i][reducao];
 					}
 				}
 			}
@@ -30,12 +30,12 @@ public class Guloso {
 		}
 		return sequencia;
 	}
-	
-    public int getTamanhoSequencia(){
-        return sequencia.size();
-    }
-    
-    public int getCustoTotal(){
-        return custoTotal;
-    }
+
+	public int getTamanhoSequencia() {
+		return sequencia.size();
+	}
+
+	public int getCustoTotal() {
+		return custoTotal;
+	}
 }

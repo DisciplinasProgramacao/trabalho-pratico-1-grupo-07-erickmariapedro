@@ -10,12 +10,13 @@ public class App {
     public static void main(String[] args) {
         MatrizDAO leitor = new MatrizDAO();
         int[][] matriz = leitor.get("LaminacaoTeste4.txt");
+        
         long tempoExecucaoInicial = 0;
         long tempoExecucaoFinal = 0;
         long tempoExecucaoBacktracking = 0;
         long tempoExecucaoProgDinamica = 0;
         long tempoExecucaoGuloso = 0;
-                
+        
         Backtracking backtracking = new Backtracking();
         Guloso guloso = new Guloso();    
         Rolo[][] matrizBacktracking = backtracking.construirMatrizRolos(matriz);
