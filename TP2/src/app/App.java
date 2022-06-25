@@ -8,19 +8,19 @@ public class App {
 
     public static void main(String[] args) {
         MatrizDAO leitor = new MatrizDAO();
-        int[][] matriz = leitor.get("LaminacaoTeste1.txt");
+        int[][] matriz = leitor.get("LaminacaoTeste4.txt");
 
-        //Backtracking backtracking = new Backtracking();
+        Backtracking backtracking = new Backtracking();
         ProgDinamica progDinamica = new ProgDinamica(matriz);
-        //Rolo[][] matrizBacktracking = backtracking.construirMatrizRolos(matriz);
-        /*System.out.println(backtracking.backtracking(matrizBacktracking,
+        Rolo[][] matrizBacktracking = backtracking.construirMatrizRolos(matriz);
+        System.out.println("(Backtracking) Melhor custo: " + backtracking.backtracking(matrizBacktracking,
                 0,
-                1,
+                matriz[0].length - 1,
                 matriz[0][0],
                 0,
                 Double.POSITIVE_INFINITY
-        ));*/
+        ));
 
-        System.out.println(progDinamica.getSequenciaCilindros().toString());
+        System.out.println("(Programação Dinânima) Sequência de rolos: " +progDinamica.getSequenciaCilindros().toString());
     }
 }
