@@ -11,13 +11,14 @@ public class Backtracking {
         return  novaMatriz;
     }
 
-    public boolean ePromissor(Rolo[][] matriz, int row) {
-        return row <= matriz.length;
+    public boolean ePromissor(Rolo[][] matriz, int row, double somaCustos, double melhorCusto) {
+        return row <= matriz.length && somaCustos < melhorCusto;
     }
 
 
-    public double backtracking(Rolo[][] matriz, int row, int col, int espessuraAtual, double somaCustos, double melhorCusto) {
-        if (ePromissor(matriz, row)) {
+    public double backtracking(Rolo[][] matriz, int row, int col, int espessuraAtual,
+                               double somaCustos, double melhorCusto) {
+        if (ePromissor(matriz, row, somaCustos, melhorCusto)) {
             if (espessuraAtual == 4) {
                 row--;
                 if (somaCustos < melhorCusto)
@@ -32,5 +33,5 @@ public class Backtracking {
         }
         return melhorCusto;
     }
-
 }
+
