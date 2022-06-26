@@ -33,29 +33,29 @@ public class App {
         ));        tempoExecucaoFinal = System.currentTimeMillis();
         tempoExecucaoBacktracking = ((tempoExecucaoFinal - tempoExecucaoInicial));
 
-        System.out.println("Tempo de execução: " + tempoExecucaoBacktracking + " ms\n");
+        System.out.println("Tempo de execuÃ§Ã£o: " + tempoExecucaoBacktracking + " ms\n");
 
-        System.out.println("Resultados Programação Dinâmica");
+        System.out.println("Resultados ProgramaÃ§Ã£o DinÃ¢mica");
         
         tempoExecucaoInicial = System.currentTimeMillis();
         ProgDinamica progDinamica = new ProgDinamica(matriz);
         tempoExecucaoFinal = System.currentTimeMillis();
         tempoExecucaoProgDinamica = ((tempoExecucaoFinal - tempoExecucaoInicial));
         
-        System.out.println("Sequência de rolos: " + progDinamica.getSequenciaCilindros().toString());
+        System.out.println("SequÃªncia de rolos: " + progDinamica.getSequenciaCilindros().toString());
         System.out.println("Quantidade de rolos: " + progDinamica.getTamanhoSequencia());
         System.out.println("Melhor custo: " + progDinamica.getCustoTotal());
-        System.out.println("Tempo de execução: " + tempoExecucaoProgDinamica + " ms\n");
+        System.out.println("Tempo de execuÃ§Ã£o: " + tempoExecucaoProgDinamica + " ms\n");
 
         System.out.println("Resultados Guloso");
         
         tempoExecucaoInicial = System.currentTimeMillis();
-        System.out.println("Sequência de rolos: " + guloso.guloso(matriz));
+        System.out.println("SequÃªncia de rolos: " + guloso.guloso(matriz));
         tempoExecucaoFinal = System.currentTimeMillis();
         tempoExecucaoGuloso = ((tempoExecucaoFinal - tempoExecucaoInicial));
         
         System.out.println("Quantidade de rolos: " + guloso.getTamanhoSequencia());
         System.out.println("Melhor custo: " + guloso.getCustoTotal());
-        System.out.println("Tempo de execução: " + tempoExecucaoGuloso + " ms\n");
+        System.out.println("Tempo de execuÃ§Ã£o: " + tempoExecucaoGuloso + " ms\n");
     }
 }

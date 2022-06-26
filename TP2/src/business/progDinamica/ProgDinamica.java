@@ -79,14 +79,17 @@ public class ProgDinamica {
                 sequencia.add(1);
                 ultimaCelula--;
                 continue;
-            }else if (diff == matrizProg[2][ultimaCelula-2].getCusto()){
+            }
+            diff = matrizProg[3][ultimaCelula].getTotal() - matrizProg[3][ultimaCelula-2].getTotal();
+            if (diff == matrizProg[2][ultimaCelula-2].getCusto()){
                 sequencia.add(2);
                 ultimaCelula -= 2;
                 continue;
-            }else{
+            }
+            diff = matrizProg[3][ultimaCelula].getTotal() - matrizProg[3][ultimaCelula-3].getTotal();
+            if(diff == matrizProg[3][ultimaCelula-3].getCusto()){
                 sequencia.add(3);
                 ultimaCelula -= 3;
-                continue;
             }
         }while (ultimaCelula > 1);
         Collections.reverse(sequencia);
