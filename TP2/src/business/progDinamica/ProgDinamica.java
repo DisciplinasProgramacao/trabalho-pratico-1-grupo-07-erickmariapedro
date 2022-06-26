@@ -47,11 +47,9 @@ public class ProgDinamica {
     }
 
     private int retornaMelhorTotal(int i, int j) {
-        int total = 0;
+        int total;
         if (j - i > 0) {
-            if (matrizProg[0][j - i] != null && matrizProg[0][j].getCusto() + i <= matrizProg[0][j - i].getCusto()){
-                total = verificaMelhorTotal(i,j);
-            }
+            total = verificaMelhorTotal(i,j);
         }else {
             total = matrizProg[i - 1][j].getTotal();
         }
